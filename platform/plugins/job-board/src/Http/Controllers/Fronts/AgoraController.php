@@ -11,6 +11,11 @@ use App\Models\Event;
 
 class AgoraController extends Controller
 {
+    public function showVideoCallRoom()
+{
+    return view('themes.jobbox.views.job-board.startmeeting');
+}
+
     public function createmeeting(Request $request,$id)
 {
   

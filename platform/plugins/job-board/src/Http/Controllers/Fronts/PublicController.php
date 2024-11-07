@@ -1054,5 +1054,35 @@ public function startmeeting(Request $request, $id)
 }
 
 
+public function videos()
+    {
+        // dd(auth('account')->user());
+        //return view('supervisor.opsreview');
+        
+        $consultants = Account::where('type', '=', 'consultant')
+            ->with('consultantReviews')
+            ->get();
+
+
+        //$file = $this->fileRepository->findOrFail(206);
+        // dd($consultants);
+
+
+
+        return Theme::scope(
+            'job-board.startmeeting',
+            ['auth' => auth()->user()],
+            'plugins/job-board::themes.startmeeting'
+        )->render();
+
+
+
+        /*return Theme::scope(
+            'job-board.consultants',
+            [],
+            'plugins/job-board::themes.consultants'
+        )->render();*/
+    }
+
 
 }

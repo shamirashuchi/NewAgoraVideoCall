@@ -8,7 +8,7 @@
             <div class="card-info">
                 <div class="card-title">
                     <h3>{{ $totalJobs }}
-                        <span class="font-sm">{{ __('Total jobs') }}</span>
+                        <span class="font-sm">{{ __('Total Jobs') }}</span>
                     </h3>
                 </div>
                 <p class="color-text-paragraph-2">{{ __('All status included') }}</p>
@@ -43,7 +43,7 @@
                         <span class="font-sm">{{ __('Total Applicants') }}</span>
                     </h3>
                 </div>
-                <p class="color-text-paragraph-2">{{ __('All status included') }}</p>
+                <p class="color-text-paragraph-2">{{ __('In :total Jobs', ['total' => $totalJobs]) }}</p>
             </div>
         </div>
     </div>
@@ -79,11 +79,11 @@
     <div class="col-lg-6">
         <div class="panel-white">
             <header class="panel-head">
-                <h5>{{ __('Matched Profile') }}</h5>
+                <h5>{{ __('Recent activities') }}</h5>
             </header>
             <article class="panel-body">
                 <ul class="verti-timeline list-unstyled font-sm">
-                    {{-- @forelse ($activities as $activity)
+                    @forelse ($activities as $activity)
                         <li class="event-list">
                             <div class="event-timeline-dot">
                                 <i class="fa-solid fa-clock"></i>
@@ -99,11 +99,11 @@
                                 </div>
                             </div>
                         </li>
-                    @empty --}}
+                    @empty
                         <li>
-                            <a href="{{ route('public.account.jobseekermatch') }}" class="text-muted">{{ __('0 matched profile') }}</a>
+                            <p class="text-muted">{{ __('No activities') }}</p>
                         </li>
-                    {{-- @endforelse --}}
+                    @endforelse
                 </ul>
             </article>
         </div>

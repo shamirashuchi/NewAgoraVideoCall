@@ -153,113 +153,117 @@
     <div class="px-4">
         <div class="container bg-light rounded-3 px-3">
 
-            <form action="" method="">
-                @foreach ($jobseekeraccounts as $jobseekeraccount)
-
-
-                <div class="row py-3">
-                    <!-- Cover Photo -->
-                    <div class="col-12 cover-photo">
-                        <img src="https://via.placeholder.com/1248x263" alt="Cover Photo" class="img-fluid w-100">
-                        <!-- Profile Photo -->
-                        <div class="profile-photo-wrapper">
-                            <div class="position-relative">
-                                <img src="{{ $jobseekeraccount->avatar_id }}" alt="Profile Photo"
-                                    class="profile-photo rounded-circle">
-                                <i class="bi bi-patch-check-fill verification-badge"></i>
-                            </div>
+            <div class="row py-3">
+                <!-- Cover Photo -->
+                <div class="col-12 cover-photo">
+                    <img src="https://via.placeholder.com/1248x263" alt="Cover Photo" class="img-fluid w-100">
+                    <!-- Profile Photo -->
+                    <div class="profile-photo-wrapper">
+                        <div class="position-relative">
+                            <img src="https://via.placeholder.com/191x191" alt="Profile Photo"
+                                class="profile-photo rounded-circle">
+                            <i class="bi bi-patch-check-fill verification-badge"></i>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <form action="" method="">
+
                 <div class="row">
-                    <div class="form-group col-md-6">
-                        <label class="form-label" for="first_name" style="font-weight: 700;">First Name</label>
+                    <div class="form-group col-md-4">
+                        <label class="form-label" for="first_name"></label>
                         <input class="form-control bg-light" id="first_name" type="text" name="first_name" required
-                            value="{{ $jobseekeraccount->first_name }}">
+                            placeholder="{{ __('First Name') }}">
                     </div>
-                    <div class="form-group col-md-6">
-                        <label class="form-label" for="last_name" style="font-weight: 700;">Last Name</label>
+                    <div class="form-group col-md-4">
+                        <label class="form-label" for="last_name"></label>
+                        <input class="form-control bg-light" id="middle_name" type="text" name="middle_name" required
+                            placeholder="{{ __('Middle Name') }}">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="form-label" for="last_name"></label>
                         <input class="form-control bg-light" id="last_name" type="text" name="last_name" required
-                        value="{{ $jobseekeraccount->last_name }}">
+                            placeholder="{{ __('Last Name') }}">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-4">
-                        <label class="form-label" for="first_name" style="font-weight: 700;">DOB</label>
+                        <label class="form-label" for="first_name"></label>
                         <input class="form-control bg-light" id="dob" type="text" name="dob" required
-                        value="{{ $jobseekeraccount->dob }}">
+                            placeholder="{{ __('DOB') }}">
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="form-label" for="last_name" style="font-weight: 700;">Gender</label>
+                        <label class="form-label" for="last_name"></label>
                         <input class="form-control bg-light" id="gender" type="text" name="gender" required
-                        value="{{ $jobseekeraccount->gender }}">
+                            placeholder="{{ __('Gender') }}">
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="form-label" for="last_name" style="font-weight: 700;">Cell Number</label>
-                        <input class="form-control bg-light" id="phone" type="text" name="phone" required
-                        value="{{ $jobseekeraccount->phone }}">
+                        <label class="form-label" for="last_name"></label>
+                        <input class="form-control bg-light" id="cell_number" type="text" name="cell_number" required
+                            placeholder="{{ __('Cell Number') }}">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label class="form-label" for="first_name" style="font-weight: 700;">Address 1</label>
-                        <input class="form-control bg-light" id="address" type="text" name="address" required
-                        value="{{ $jobseekeraccount->address }}">
+                        <label class="form-label" for="first_name"></label>
+                        <input class="form-control bg-light" id="address1" type="text" name="address1" required
+                            placeholder="{{ __('Address 1') }}">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="form-label" for="first_name" style="font-weight: 700;">Address 2</label>
-                        <input class="form-control bg-light" id="address_line_2" type="text" name="address_line_2" required
-                        value="{{ $jobseekeraccount->address_line_2 }}">
+                        <label class="form-label" for="last_name"></label>
+                        <input class="form-control bg-light" id="address2" type="text" name="address2" required
+                            placeholder="{{ __('Address 2') }}">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-4">
-                        <label class="form-label" for="first_name" style="font-weight: 700;">City</label>
+                        <label class="form-label" for="first_name"></label>
                         <input class="form-control bg-light" id="city" type="text" name="city" required
-                        value="{{ $jobseekeraccount->city }}">
+                            placeholder="{{ __('City') }}">
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="form-label" for="last_name" style="font-weight: 700;">Province</label>
+                        <label class="form-label" for="last_name"></label>
                         <input class="form-control bg-light" id="province" type="text" name="province" required
-                        value="{{ $jobseekeraccount->province }}">
+                            placeholder="{{ __('Province') }}">
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="form-label" for="last_name" style="font-weight: 700;">Permanent Residence</label>
-                        <input class="form-control bg-light" id="permanent_resident" type="text"
-                            name="permanent_resident" required value="{{ $jobseekeraccount->permanent_resident }}">
+                        <label class="form-label" for="last_name"></label>
+                        <input class="form-control bg-light" id="permanent_residence" type="text"
+                            name="permanent_residence" required placeholder="{{ __('Permanent Residence') }}">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label class="form-label" for="first_name" style="font-weight: 700;">Favorite job tag</label>
+                        <label class="form-label" for="first_name"></label>
                         <input class="form-control bg-light" id="favorite_job_tag" type="text"
-                            name="favorite_job_tag" required value="{{ $jobseekeraccount->job_tag }}">
+                            name="favorite_job_tag" required placeholder="{{ __('Favorite job tag') }}">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="form-label" for="last_name" style="font-weight: 700;">Job Skill</label>
+                        <label class="form-label" for="last_name"></label>
                         <input class="form-control bg-light" id="job_skill" type="text" name="job_skill" required
-                        value="{{ $jobseekeraccount->job_skill }}">
+                            placeholder="{{ __('Job Skill') }}">
                     </div>
                 </div>
 
                 <div class="container mt-5">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group col-md-6">
-                                <label class="form-label" for="last_name" style="font-weight: 700;">Attactment CV</label>
-                                <input class="form-control bg-light" id="permanent_resident" type="file"
-                                    name="permanent_resident" required>
+                            <div class="drag-drop-area d-flex justify-content-between" id="drag-drop-area-1">
+                                <p>Attachment CV</p>
+                                <p class="me-5">Drag and drop</p>
+                                <input type="file" id="fileInput1" class="form-control d-none" multiple>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group col-md-6">
-                                <label class="form-label" for="last_name" style="font-weight: 700;">Cover Letter</label>
-                                <input class="form-control bg-light" id="permanent_resident" type="file"
-                                    name="permanent_resident" required>
+                            <div class="drag-drop-area d-flex justify-content-between" id="drag-drop-area-2">
+                                <p>Cover letter</p>
+                                <p class="me-5">Drag and drop</p>
+                                <input type="file" id="fileInput2" class="form-control d-none" multiple>
                             </div>
                         </div>
                     </div>
@@ -279,10 +283,9 @@
 
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <label class="form-label" for="last_name" style="font-weight: 700;">Introduce Yourself</label>
                         <div class="textarea-container">
                             <textarea id="introduce_yourself" name="introduce_yourself" class="form-control bg-light" required
-                            value="{{ $jobseekeraccount->bio }}"></textarea>
+                                placeholder="{{ __('Introduce yourself') }}"></textarea>
                         </div>
                     </div>
                 </div>
@@ -290,7 +293,7 @@
                 <div class="d-flex justify-content-center align-items-center">
                     <button type="submit" class="btn btn-primary fw-bold px-5 my-3">Save all the changes</button>
                 </div>
-                @endforeach
+
             </form>
         </div>
     </div>

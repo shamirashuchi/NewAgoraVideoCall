@@ -43,8 +43,6 @@
 
 
     {!! Theme::partial('theme-meta') !!}
-
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 </head>
 
 <body @if (BaseHelper::siteLanguageDirection() == 'rtl') dir="rtl" @endif id="bgDesign">

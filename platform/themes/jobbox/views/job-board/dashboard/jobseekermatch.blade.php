@@ -4,7 +4,7 @@
 
 <style>
     thead tr {
-  background-color: #0879EA;
+  background-color: blue;
   color: white;
 }
 
@@ -12,7 +12,7 @@
 
 </style>
 
-<h5>Here are some <span style="color: #0879EA">Matched Jobseekers</span> for you!</h5>
+<h5>Here are some <span style="color:blue">Matched Jobseekers</span> for you!</h5>
 <br>
 
 <div class="table-responsive">
@@ -26,19 +26,19 @@
             </tr>
         </thead>
         <tbody>
-
+            
             @php
                 use Illuminate\Support\Str;
             @endphp
-
+            
             @foreach ($resultArray as $row)
             <tr>
                 <td>{{ $row->name }}</td>
                 <td>{{ $row->description }}</td>
                 <td>{{ $row->company_name }}</td>
                 <td>
-
-
+                    
+                    
                     <a target="_blank" href="" class="btn btn-sm btn-primary">View</a>
 
                 </td>

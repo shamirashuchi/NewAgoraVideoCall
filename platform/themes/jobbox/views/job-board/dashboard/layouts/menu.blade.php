@@ -8,7 +8,7 @@
         display: block;
     }
 
-
+     
 </style>
 
 
@@ -25,7 +25,7 @@
 @if ($type == 'employer')
     @php
         // Establish a connection to the database
-        $connection = mysqli_connect('127.0.0.1', 'u482122650_jobfynewadmin', '>Bgn;0XSC1', 'u482122650_jobfynew5');
+        $connection = mysqli_connect('127.0.0.1', 'root', '', 'ready_force');
 
         // Check the connection
         if ($connection === false) {
@@ -36,12 +36,12 @@
         $query = "SELECT company_id FROM jb_companies_accounts WHERE account_id = $userid";
         $result = mysqli_query($connection, $query);
 
-        // if ($result) {
-        //     $row = mysqli_fetch_assoc($result);
-        //     $company_id = $row['company_id'];
-        // } else {
-        //     $company_id = 1;
-        // }
+        if ($result) {
+            $row = mysqli_fetch_assoc($result);
+            $company_id = $row['company_id'];
+        } else {
+            $company_id = 1;
+        }
 
         // Close the connection
         mysqli_close($connection);
@@ -74,14 +74,14 @@
     .main-menu li a:hover{
     background-color: #fff !important;
     border-radius: 8px;
-    color: #0879EA !important;
+    color: #0879EA !important; 
 }
 
 .main-menu li a.active span {
     color: #0879EA !important;
 }
     .main-menu li a:hover span{
-    color: #0879EA !important;
+    color: #0879EA !important; 
 }
 .main-menu li a img{
     display: inline-block;
@@ -122,23 +122,14 @@
                 'name' => __('Dashboard'),
                 'order' => 1,
                 'enabled' => true,
-                'routes' => ['public.account.dashboard'],
             ],
-            [
-                'key' => 'public.account.settings',
-                'icon' => 'imgs/page/dashboard/profile.svg',
-                'active_icon' => 'imgs/page/dashboard/profile2_active.svg',
-                'name' => 'My Profile',
-                'order' => 2,
-                'enabled' => true,
-                'routes' => ['public.account.settings'],
-            ],
+
             [
                 'key' => 'public.account.test',
                 'icon' => 'imgs/page/dashboard/verified.svg',
                 'active_icon' => 'imgs/page/dashboard/verified-active.svg',
                 'name' => 'Get Verified',
-                'order' => 3,
+                'order' => 2,
                 'enabled' => true,
                 'routes' => ['public.account.test'],
             ],
@@ -148,23 +139,23 @@
                 'icon' => 'imgs/page/dashboard/jobs.svg',
                 'active_icon' => 'imgs/page/dashboard/jobs2_active.svg',
                 'name' => __('Jobs'),
-                'order' => 4,
+                'order' => 3,
                 'enabled' => true,
                 'submenus' => [
-                    // [
-                    //     'key' => 'public.account.jobs.create',
-                    //     'icon' => 'imgs/page/dashboard/jobs.svg',
-                    //     'active_icon' => 'imgs/page/dashboard/jobs2_active.svg',
-                    //     'name' => 'Post a Job',
-                    //     'order' => 1,
-                    //     'enabled' => true,
-                    // ],
+                    [
+                        'key' => 'public.account.jobs.create',
+                        'icon' => 'imgs/page/dashboard/jobs.svg',
+                        'active_icon' => 'imgs/page/dashboard/jobs2_active.svg',
+                        'name' => 'Post a Job',
+                        'order' => 1,
+                        'enabled' => true,
+                    ],
                     [
                         'key' => 'public.account.jobs.index',
                         'icon' => 'imgs/page/dashboard/jobs.svg',
                         'active_icon' => 'imgs/page/dashboard/jobs2_active.svg',
                         'name' => 'All Jobs',
-                        'order' => 1,
+                        'order' => 2,
                         'enabled' => true,
                     ],
                     [
@@ -172,17 +163,17 @@
                         'icon' => 'imgs/page/dashboard/jobs.svg',
                         'active_icon' => 'imgs/page/dashboard/jobs2_active.svg',
                         'name' => 'All Applicants',
-                        'order' => 2,
+                        'order' => 3,
                         'enabled' => true,
                     ],
-                    // [
-                    //     'key' => 'public.account.jobseekermatch',
-                    //     'icon' => 'imgs/page/dashboard/jobs.svg',
-                    //     'active_icon' => 'imgs/page/dashboard/jobs2_active.svg',
-                    //     'name' => 'Matched Profile',
-                    //     'order' => 3,
-                    //     'enabled' => true,
-                    // ],
+                    [
+                        'key' => 'public.account.jobseekermatch',
+                        'icon' => 'imgs/page/dashboard/jobs.svg',
+                        'active_icon' => 'imgs/page/dashboard/jobs2_active.svg',
+                        'name' => 'Matched Profile',
+                        'order' => 4,
+                        'enabled' => true,
+                    ],
                     // Add more submenu items here
                 ],
             ],
@@ -192,7 +183,7 @@
                 'icon' => 'imgs/page/dashboard/packages.svg',
                 'active_icon' => 'imgs/page/dashboard/packages2_active.svg',
                 'name' => __('Package'),
-                'order' => 5,
+                'order' => 4,
                 'enabled' => JobBoardHelper::isEnabledCreditsSystem(),
             ],
 
@@ -201,39 +192,46 @@
                 'icon' => 'imgs/page/dashboard/invoice.svg',
                 'active_icon' => 'imgs/page/dashboard/invoice2_active.svg',
                 'name' => __('Invoices'),
-                'order' => 6,
+                'order' => 5,
                 'enabled' => true,
                 'routes' => ['public.account.invoices.show'],
             ],
 
             [
-                'key' => 'public.account.security',
+                'key' => 'public.account.employer',
                 'icon' => 'imgs/page/dashboard/settings.svg',
                 'active_icon' => 'imgs/page/dashboard/settings2_active.svg',
-                'name' => __('Security'),
-                'order' => 7,
+                'name' => __('Settings'),
+                'order' => 6,
                 'enabled' => true,
-                // 'submenus' => [
-                //     [
-                //         'key' => 'public.account.companies.index',
-                //         'icon' => 'imgs/page/dashboard/settings.svg',
-                //         'active_icon' => 'imgs/page/dashboard/settings2_active.svg',
-                //         'name' => 'Company Profile',
-                //         'order' => 1,
-                //         'enabled' => true,
-                //     ],
+                'submenus' => [
+                    [
+                        'key' => 'public.account.companies.index',
+                        'icon' => 'imgs/page/dashboard/settings.svg',
+                        'active_icon' => 'imgs/page/dashboard/settings2_active.svg',
+                        'name' => 'Company Profile',
+                        'order' => 1,
+                        'enabled' => true,
+                    ],
 
-                //     [
-                //         'key' => 'public.account.security',
-                //         'icon' => 'imgs/page/dashboard/settings.svg',
-                //         'active_icon' => 'imgs/page/dashboard/settings2_active.svg',
-                //         'name' => 'Security',
-                //         'order' => 2,
-                //         'enabled' => true,
-                //     ],
-
-                //     // Add more submenu items here
-                // ],
+                    [
+                        'key' => 'public.account.security',
+                        'icon' => 'imgs/page/dashboard/settings.svg',
+                        'active_icon' => 'imgs/page/dashboard/settings2_active.svg',
+                        'name' => 'Security',
+                        'order' => 2,
+                        'enabled' => true,
+                    ],
+                    [
+                        'key' => 'public.account.settings',
+                        'icon' => 'imgs/page/dashboard/settings.svg',
+                        'active_icon' => 'imgs/page/dashboard/settings2_active.svg',
+                        'name' => 'Overview',
+                        'order' => 3,
+                        'enabled' => true,
+                    ],
+                    // Add more submenu items here
+                ],
             ],
 
             [
@@ -241,7 +239,7 @@
                 'icon' => 'imgs/page/dashboard/home.svg',
                 'active_icon' => 'imgs/page/dashboard/home2-active.svg',
                 'name' => __('Go Home'),
-                'order' => 8,
+                'order' => 7,
                 'enabled' => true,
                 'routes' => ['public.account.invoices.show'],
             ],
@@ -251,7 +249,7 @@
                 'icon' => 'imgs/page/dashboard/logout.svg',
                 'active_icon' => 'imgs/page/dashboard/logout2_active.svg',
                 'name' => __('Logout'),
-                'order' => 9,
+                'order' => 7,
                 'enabled' => true,
                 'routes' => ['public.account.logout'],
             ],
@@ -277,19 +275,19 @@
 .main-menu li a.active{
     background-color: #fff !important;
     border-radius: 8px;
-    color: rgb(5, 38, 78) !important;
+    color: #800080 !important;
 }
     .main-menu li a:hover{
     background-color: #fff !important;
     border-radius: 8px;
-    color: rgb(69, 125, 194) !important;
+    color: #800080 !important; 
 }
 
     .main-menu li a.active span {
-    color: rgb(69, 125, 194) !important;
+    color: #800080 !important;
 }
     .main-menu li a:hover span{
-    color: rgb(69, 125, 194) !important;
+    color: #800080 !important; 
 }
 .main-menu li a img{
     display: inline-block;
@@ -322,12 +320,21 @@
 
         $menus = collect([
             [
-                'key' => 'public.account.consultanthome',
-                'icon' => 'imgs/page/dashboard/dashboard.svg',
-                'active_icon' => 'imgs/page/dashboard/dashboard3-active.svg',
-                'name' => 'Dashboard',
-                'routes' => ['public.account.consultanthome'],
+                'key' => 'public.account.consultant-packages.index',
+                'icon' => 'imgs/page/dashboard/packages.svg',
+                'active_icon' => 'imgs/page/dashboard/packages3-active.svg',
+                'name' => 'Package',
+                // 'routes' => ['public.account.consultant-packages.index', 'public.account.consultant-packages.create'],
                 'order' => 1,
+                'enabled' => true,
+            ],
+            [
+                'key' => 'public.account.security',
+                'icon' => 'imgs/page/dashboard/recruiters.svg',
+                'active_icon' => 'imgs/page/dashboard/recruiter-active.svg',
+                'name' => 'Security',
+                'routes' => ['public.account.companies.create', 'public.account.companies.edit'],
+                'order' => 3,
                 'enabled' => true,
             ],
             [
@@ -336,58 +343,36 @@
                 'active_icon' => 'imgs/page/dashboard/profile3-active.svg',
                 'name' => 'My Profile',
                 'routes' => ['public.account.settings'],
-                'order' => 2,
-                'enabled' => true,
-            ],
-            [
-                'key' => 'public.account.test',
-                'icon' => 'imgs/page/dashboard/verified.svg',
-                'active_icon' => 'imgs/page/dashboard/verified3-active.svg',
-                'name' => 'Get Verified',
                 'order' => 3,
                 'enabled' => true,
-                'routes' => ['public.account.test'],
             ],
+
             [
-                'key' => 'public.account.packages',
-                'icon' => 'imgs/page/dashboard/packages.svg',
-                'active_icon' => 'imgs/page/dashboard/packages3-active.svg',
-                'name' => 'Package',
-                // 'routes' => ['public.account.consultant-packages.index', 'public.account.consultant-packages.create'],
-                'order' => 4,
-                'enabled' => true,
-            ],
-            [
-                'key' => 'public.account.invoices.index',
-                'icon' => 'imgs/page/dashboard/invoice.svg',
-                'active_icon' => 'imgs/page/dashboard/invoice3_active.svg',
-                'name' => __('Invoices'),
+                'key' => 'public.account.overview',
+                'icon' => 'imgs/page/dashboard/tasks.svg',
+                'active_icon' => 'imgs/page/dashboard/tasks-active.svg',
+                'name' => 'Overview',
                 'order' => 5,
                 'enabled' => true,
                 'routes' => ['public.account.invoices.show'],
             ],
+
             [
-                'key' => 'public.account.security',
-                'icon' => 'imgs/page/dashboard/settings.svg',
-                'active_icon' => 'imgs/page/dashboard/settings3_active.svg',
-                'name' => 'Security',
-                'order' => 6,
+                'key' => 'public.account.test',
+                'icon' => 'imgs/page/dashboard/verified.svg',
+                'active_icon' => 'imgs/page/dashboard/verified3-active.svg',
+                'name' => 'Verification',
+                'order' => 5,
                 'enabled' => true,
+                'routes' => ['public.account.test'],
             ],
-            [
-                'key' => 'public.account.meet',
-                'icon' => 'imgs/page/dashboard/settings.svg',
-                'active_icon' => 'imgs/page/dashboard/settings3_active.svg',
-                'name' => 'Meet',
-                'order' => 7,
-                'enabled' => true,
-            ],
+
             [
                 'key' => 'public.index',
                 'icon' => 'imgs/page/dashboard/jobs.svg',
                 'active_icon' => 'imgs/page/dashboard/jobs3-active.svg',
-                'name' => 'Go Home',
-                'order' => 8,
+                'name' => 'View Website',
+                'order' => 5,
                 'enabled' => true,
                 'routes' => ['public.index'],
             ],
@@ -397,7 +382,7 @@
                 'icon' => 'imgs/page/dashboard/logout.svg',
                 'active_icon' => 'imgs/page/dashboard/logout6-active.svg',
                 'name' => __('Logout'),
-                'order' => 9,
+                'order' => 5,
                 'enabled' => true,
                 'routes' => ['public.account.logout'],
             ],
@@ -426,7 +411,7 @@
                 'enabled' => true,
                 'submenus' => [
                     [
-                        'key' => 'public.account.settings',
+                        'key' => 'public.account.overview',
                         'icon' => 'imgs/page/dashboard/profile.svg',
                         'active_icon' => 'imgs/page/dashboard/profile_active.svg',
                         'name' => 'Overview',
@@ -449,55 +434,62 @@
                         'order' => 3,
                         'enabled' => true,
                     ],
+                    [
+                        'key' => 'public.account.security',
+                        'icon' => 'imgs/page/dashboard/profile.svg',
+                        'active_icon' => 'imgs/page/dashboard/profile_active.svg',
+                        'name' => 'Security',
+                        'order' => 4,
+                        'enabled' => true,
+                    ],
+                    [
+                        'key' => 'public.account.test',
+                        'icon' => 'imgs/page/dashboard/profile.svg',
+                        'active_icon' => 'imgs/page/dashboard/profile_active.svg',
+                        'name' => 'Get Verified',
+                        'order' => 5,
+                        'enabled' => true,
+                    ],
                     // Add more submenu items here
                 ],
             ],
 
             [
-                        'key' => 'public.account.test',
-                        'icon' => 'imgs/page/dashboard/verified.svg',
-                        'active_icon' => 'imgs/page/dashboard/verified1_active.svg',
-                        'name' => 'Get Verified',
+                'key' => 'public.account.employer',
+                'icon' => 'imgs/page/dashboard/jobs.svg',
+                'active_icon' => 'imgs/page/dashboard/jobs_active.svg',
+                'name' => __('Jobs'),
+                'order' => 3,
+                'enabled' => true,
+                'submenus' => [
+                    [
+                        'key' => 'public.account.jobs.saved',
+                        'icon' => 'imgs/page/dashboard/jobs.svg',
+                        'active_icon' => 'imgs/page/dashboard/jobs_active.svg',
+                        'name' => 'Saved Jobs',
+                        'order' => 1,
+                        'enabled' => true,
+                    ],
+                    [
+                        'key' => 'public.account.jobs.applied-jobs',
+                        'icon' => 'imgs/page/dashboard/jobs.svg',
+                        'active_icon' => 'imgs/page/dashboard/jobs_active.svg',
+                        'name' => 'Applied Jobs',
+                        'order' => 2,
+                        'enabled' => true,
+                    ],
+                    [
+                        'key' => 'public.account.jobmatch',
+                        'icon' => 'imgs/page/dashboard/jobs.svg',
+                        'active_icon' => 'imgs/page/dashboard/jobs_active.svg',
+                        'name' => 'Matched Jobs',
                         'order' => 3,
                         'enabled' => true,
                     ],
 
-            // [
-            //     'key' => 'public.account.employer',
-            //     'icon' => 'imgs/page/dashboard/jobs.svg',
-            //     'active_icon' => 'imgs/page/dashboard/jobs_active.svg',
-            //     'name' => __('Jobs'),
-            //     'order' => 3,
-            //     'enabled' => true,
-            //     'submenus' => [
-            //         [
-            //             'key' => 'public.account.jobs.saved',
-            //             'icon' => 'imgs/page/dashboard/jobs.svg',
-            //             'active_icon' => 'imgs/page/dashboard/jobs_active.svg',
-            //             'name' => 'Saved Jobs',
-            //             'order' => 1,
-            //             'enabled' => true,
-            //         ],
-            //         [
-            //             'key' => 'public.account.jobs.applied-jobs',
-            //             'icon' => 'imgs/page/dashboard/jobs.svg',
-            //             'active_icon' => 'imgs/page/dashboard/jobs_active.svg',
-            //             'name' => 'Applied Jobs',
-            //             'order' => 2,
-            //             'enabled' => true,
-            //         ],
-            //         [
-            //             'key' => 'public.account.jobmatch',
-            //             'icon' => 'imgs/page/dashboard/jobs.svg',
-            //             'active_icon' => 'imgs/page/dashboard/jobs_active.svg',
-            //             'name' => 'Matched Jobs',
-            //             'order' => 3,
-            //             'enabled' => true,
-            //         ],
-
-            //         // Add more submenu items here
-            //     ],
-            // ],
+                    // Add more submenu items here
+                ],
+            ],
 
             [
                 'key' => 'public.account.packages',
@@ -521,40 +513,32 @@
 
             // adding Settings
             [
-                'key' => 'public.account.security',
+                'key' => 'public.account.employer',
                 'icon' => 'imgs/page/dashboard/settings.svg',
                 'active_icon' => 'imgs/page/dashboard/settings_active.svg',
-                'name' => 'Security',
+                'name' => __('Settings'),
                 'order' => 6,
                 'enabled' => true,
+                'routes' => ['public.account.settings'],
+                'submenus' => [
+                    [
+                        'key' => 'public.account.security',
+                        'icon' => 'imgs/page/dashboard/settings.svg',
+                        'active_icon' => 'imgs/page/dashboard/settings_active.svg',
+                        'name' => 'Security',
+                        'order' => 1,
+                        'enabled' => true,
+                    ],
+                    [
+                        'key' => 'public.account.settings',
+                        'icon' => 'imgs/page/dashboard/settings.svg',
+                        'active_icon' => 'imgs/page/dashboard/settings_active.svg',
+                        'name' => 'Overview',
+                        'order' => 2,
+                        'enabled' => true,
+                    ],
             ],
-            // [
-            //     'key' => 'public.account.employer',
-            //     'icon' => 'imgs/page/dashboard/settings.svg',
-            //     'active_icon' => 'imgs/page/dashboard/settings_active.svg',
-            //     'name' => __('Settings'),
-            //     'order' => 6,
-            //     'enabled' => true,
-            //     'routes' => ['public.account.settings'],
-            //     'submenus' => [
-            //         [
-            //             'key' => 'public.account.security',
-            //             'icon' => 'imgs/page/dashboard/settings.svg',
-            //             'active_icon' => 'imgs/page/dashboard/settings_active.svg',
-            //             'name' => 'Security',
-            //             'order' => 1,
-            //             'enabled' => true,
-            //         ],
-            //         [
-            //             'key' => 'public.account.settings',
-            //             'icon' => 'imgs/page/dashboard/settings.svg',
-            //             'active_icon' => 'imgs/page/dashboard/settings_active.svg',
-            //             'name' => 'Overview',
-            //             'order' => 2,
-            //             'enabled' => true,
-            //         ],
-            // ],
-            // ],
+            ],
 
             [
                 'key' => 'public.index',
@@ -580,6 +564,12 @@
         $currentRouteName = Route::currentRouteName();
     @endphp
     <style>
+        .main-menu{
+            background-color: #fff !important;
+            padding:20px;
+            margin-top: 200px;
+            padding-bottom:-200px;
+}
        .main-menu li a {
     color: #66789c;
     display: block;
@@ -600,14 +590,14 @@
     .main-menu li a:hover{
     background-color: #fff !important;
     border-radius: 8px;
-    color: #F9A620 !important;
+    color: #F9A620 !important; 
 }
 
     .main-menu li a.active span {
     color: #F9A620 !important;
 }
     .main-menu li a:hover span{
-    color: #F9A620 !important;
+    color: #F9A620 !important; 
 }
 .main-menu li a img{
     display: inline-block;
@@ -662,9 +652,9 @@
                     <form action="{{ route($item['key']) }}" method="POST" id="formLogout">
                         @csrf
                         <a class="dashboard2" onclick="document.getElementById('formLogout').submit()">
-                            <img
-                                src="{{ Theme::asset()->url($isActive ? $item['active_icon'] : $item['icon']) }}"
-                                alt="{{ $item['key'] }}"
+                            <img 
+                                src="{{ Theme::asset()->url($isActive ? $item['active_icon'] : $item['icon']) }}" 
+                                alt="{{ $item['key'] }}" 
                                 class="menu-icon"
                                 data-icon="{{ Theme::asset()->url($item['icon']) }}"
                                 data-active-icon="{{ Theme::asset()->url($item['active_icon']) }}"
@@ -679,13 +669,13 @@
 
 
 
-
+            
                 @if (isset($item['submenus']) && count($item['submenus']) > 0)
                     <li class="menu-item dropdown {{ $isActive ? 'active' : '' }}">
                         <a class="dropdown-toggle {{ $isActive ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="{{ $isActive || $hasActiveSubmenu? 'true' : 'false' }}">
-                            <img
-                                src="{{ Theme::asset()->url($isActive ? $item['active_icon'] : $item['icon']) }}"
-                                alt="{{ $item['key'] }}"
+                            <img 
+                                src="{{ Theme::asset()->url($isActive ? $item['active_icon'] : $item['icon']) }}" 
+                                alt="{{ $item['key'] }}" 
                                 class="menu-icon"
                                 data-icon="{{ Theme::asset()->url($item['icon']) }}"
                                 data-active-icon="{{ Theme::asset()->url($item['active_icon']) }}"
@@ -699,7 +689,7 @@
                                 @endphp
                                 @if ($submenu['name'] == 'Company Profile')
                                     <a class="dashboard2 submenu-toggle   submenuchange {{ $isSubmenuActive ? 'active' : '' }}" href="https://readyforce.ca/account/companies/edit/{{ $company_id }}">
-                                        <img src="{{ Theme::asset()->url($isSubmenuActive ? $submenu['active_icon'] : $submenu['icon']) }}" alt="{{ $submenu['key'] }}" class="menu-icon-done"
+                                        <img src="{{ Theme::asset()->url($isSubmenuActive ? $submenu['active_icon'] : $submenu['icon']) }}" alt="{{ $submenu['key'] }}" class="menu-icon-done" 
                                         data-icon="{{ Theme::asset()->url($submenu['icon']) }}"
                                         data-active-icon="{{ Theme::asset()->url($submenu['active_icon']) }}">
                                         @if($type == 'job-seeker')
@@ -710,7 +700,7 @@
                                     </a>
                                 @else
                                     <a class="dashboard2 submenu-toggle submenuchange {{ $isSubmenuActive ? 'active' : '' }}" href="{{ route($submenu['key']) }}">
-                                        <img src="{{ Theme::asset()->url($isSubmenuActive ? $submenu['active_icon'] : $submenu['icon']) }}" alt="{{ $submenu['key'] }}" class="menu-icon-done"
+                                        <img src="{{ Theme::asset()->url($isSubmenuActive ? $submenu['active_icon'] : $submenu['icon']) }}" alt="{{ $submenu['key'] }}" class="menu-icon-done" 
                                         data-icon="{{ Theme::asset()->url($submenu['icon']) }}"
                                         data-active-icon="{{ Theme::asset()->url($submenu['active_icon']) }}">
                                         @if($type == 'job-seeker')
@@ -722,29 +712,29 @@
                                 @endif
                                 <script>
                                     $(document).ready(function() {
-
+   
     $('.submenu-toggle').hover(
         function() {
-
+           
             var icon = $(this).find('.menu-icon-done');
             var activeIcon = icon.data('active-icon');
-            console.log($(this));
+            console.log($(this)); 
 console.log($(this).hasClass('active'));
             if (!$(this).hasClass('active')) {
                 icon.attr('src', activeIcon);
             }
-        },
+        }, 
         function() {
             var icon = $(this).find('.menu-icon-done');
             var activeIcon = icon.data('active-icon');
             var defaultIcon = icon.data('icon');
-
+        
 
             if ($(this).hasClass('active')) {
-
+               
                 icon.attr('src', activeIcon);
             } else {
-
+               
                 icon.attr('src', defaultIcon);
             }
         }
@@ -757,9 +747,9 @@ console.log($(this).hasClass('active'));
                 @else
                     <li class="menu-item {{ $isActive ? 'active' : '' }}">
                         <a class="dashboard2 {{ $isActive ? 'active' : '' }}" href="{{ route($item['key']) }}">
-                            <img
-                                src="{{ Theme::asset()->url($isActive ? $item['active_icon'] : $item['icon']) }}"
-                                alt="{{ $item['key'] }}"
+                            <img 
+                                src="{{ Theme::asset()->url($isActive ? $item['active_icon'] : $item['icon']) }}" 
+                                alt="{{ $item['key'] }}" 
                                 class="menu-icon"
                                 data-icon="{{ Theme::asset()->url($item['icon']) }}"
                                 data-active-icon="{{ Theme::asset()->url($item['active_icon']) }}"
@@ -789,7 +779,7 @@ console.log($(this).hasClass('active'));
                 img.src = img.getAttribute('data-icon');
             }
         });
-
+       
 });
 
 

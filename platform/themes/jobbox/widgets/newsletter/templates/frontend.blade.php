@@ -269,13 +269,7 @@
 
         </div>
         </div> --}}
-
-
-
-
-
-
-        {{-- <div class="background-image  mx-xl-auto mx-lg-auto  mx-md-auto mx-sm-auto"
+        <div class="background-image  mx-xl-auto mx-lg-auto  mx-md-auto mx-sm-auto"
             style="background-image: url('{{ asset('images/redblue.png') }}');">
             <div class="d-flex flex-md-row flex-sm-column  justify-content-between align-items-center">
                 <svg width="216" height="276" viewBox="0 0 216 276" fill="none"
@@ -338,46 +332,7 @@
 
 
             </div>
-        </div> --}}
-
-
-
-
-        <section class="section-box mt-30 mb-0" style="background: rgba(168, 187, 255, 0.84);">
-            <div class="container">
-                <div class="box-newsletter p-0">
-                    <div class="row full-content">
-
-                        <!-- Image Section -->
-                        <div class="col-xl-5 col-lg-6 col-md-6 col-12 text-center d-none d-md-block mb-4 mb-md-0">
-                            <img src="{{ RvMedia::getImageUrl('https://www.mamtaz.com/storage/covers/group-38979.png') }}"
-                                alt="{{ theme_option('site_title') }}" class="img-fluid responsive-img">
-                        </div>
-
-                        <!-- Text Section -->
-                        <div class="col-xl-7 col-lg-6 col-md-6 col-12 mt-50 text-area">
-                            {{-- <h3 class="text-md-newsletterr fw-bold text-white">
-                                {!! BaseHelper::clean($config['title']) !!}
-                            </h3>
-                            <h3 class="text-md-newsletterr fw-bold pt-35" style="color: rgba(5, 38, 78, 1);">
-                                Create Your Personal Account Profiles
-                            </h3> --}}
-                            <div class="mt-80 text-content">
-                                <div
-                                    style="font-size: 16px; margin-top: 10px; margin-bottom: 20px; margin-right: 50px; color: #ffffff">
-                                    Work Profile is a personality assessment that measures an individual's work personality
-                                    through their workplace traits, social and emotional traits; as well as the values and
-                                    aspirations that drive them forward.
-                                </div>
-                                <a style="background: rgba(249, 166, 32, 1); padding: 13px 60px; border: none; border-radius: 4px; font-size: 16px;"
-                                    class="btn text-white mt-30 mb-30" href="{{ route('consultants') }}">Create Profile</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
 
         <style>
             .svgDesign {

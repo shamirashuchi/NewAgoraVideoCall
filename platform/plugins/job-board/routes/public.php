@@ -89,6 +89,7 @@ Route::middleware(['web'])->group(function () {
     Route::get('consultantdetails/{id}/meeting', [PublicController::class, 'consultantmeeting'])->name('consultantmeeting');
     Route::get('consultantdetails/{id}/startmeeting', [PublicController::class, 'startmeeting'])->name('startmeeting');
     Route::post('consultantdetails/{id}/createmeeting', [AgoraController::class, 'getToken'])->name('createmeeting');
+    Route::get('videos', [PublicController::class, 'videos'])->name('videos');
     Route::post('consultant-reviewed/{id}', [PublicController::class, 'consultantReviewed'])->name('consultant.reviewed');
     Route::delete('consultant-review/{consultantReview}', [PublicController::class, 'consultantReviewDelete'])->name('consultant.review.delete');
     

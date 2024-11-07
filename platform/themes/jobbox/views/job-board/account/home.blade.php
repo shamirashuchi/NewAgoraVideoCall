@@ -12,7 +12,7 @@
             <div class="card-info">
                 <div class="card-title">
                     <h3>0
-                        <span class="font-sm">Applied Jobs</span>
+                        <span class="font-sm">Total Jobs</span>
                     </h3>
                 </div>
                 <p class="color-text-paragraph-2">All status included</p>
@@ -28,7 +28,7 @@
             <div class="card-info">
                 <div class="card-title">
                     <h3>0
-                        <span class="font-sm">Saved Jobs</span>
+                        <span class="font-sm">Total Companies</span>
                     </h3>
                 </div>
                 <p class="color-text-paragraph-2">All status included</p>
@@ -44,10 +44,10 @@
             <div class="card-info">
                 <div class="card-title">
                     <h3>0
-                        <span class="font-sm">Matched Jobs</span>
+                        <span class="font-sm">Total Applicants</span>
                     </h3>
                 </div>
-                <p class="color-text-paragraph-2">All status included</p>
+                <p class="color-text-paragraph-2">In 0 Jobs</p>
             </div>
         </div>
     </div>
@@ -56,11 +56,11 @@
     <div class="col-lg-6">
         <div class="panel-white">
             <header class="panel-head">
-                <h5>New Jobs</h5>
+                <h5>New Applicants</h5>
             </header>
             <article class="panel-body">
                 <div class="new-member-list">
-                    <a href="{{ url('/jobs') }}" class="text-muted">0 new Jobs</a>
+                    <p class="text-muted">No new applicants</p>
                 </div>
             </article>
         </div>
@@ -72,27 +72,9 @@
             </header>
             <article class="panel-body">
                 <ul class="verti-timeline list-unstyled font-sm">
-                    @forelse ($activities as $activity)
-                        <li class="event-list">
-                            <div class="event-timeline-dot">
-                                <i class="fa-solid fa-clock"></i>
-                            </div>
-                            <div class="media">
-                                <div class="me-3">
-                                    <h6 class="text-nowrap">
-                                        <span>{{ $activity->created_at->diffForHumans() }} <i class="fa-solid fa-arrow-right-long icon-arrow"></i></span>
-                                    </h6>
-                                </div>
-                                <div class="media-body">
-                                    <div>{!! BaseHelper::clean($activity->getDescription(false)) !!}</div>
-                                </div>
-                            </div>
-                        </li>
-                    @empty
-                        <li>
-                            <a href="{{ route('public.account.jobseekermatch') }}" class="text-muted">{{ __('0 matched profile') }}</a>
-                        </li>
-                    @endforelse
+                    <li>
+                        <p class="text-muted">No activities</p>
+                    </li>
                 </ul>
             </article>
         </div>
@@ -100,41 +82,33 @@
 </div>
 <div class="panel-white">
     <header class="panel-head">
-        <h4>Matched Jobs</h4>
+        <h4>Jobs are about to expire</h4>
     </header>
     <div class="panel-body">
         <div class="table-responsive">
             <table class="table align-middle table-nowrap mb-0">
-
                 <thead class="table-light">
                     <tr>
-                        <th class="align-middle" scope="col">Job Title</th>
-                        <th class="align-middle" scope="col">Company Name</th>
-                        <th class="align-middle" scope="col">Job Description</th>
-                        <th class="align-middle" scope="col">Salary</th>
-                        <th class="align-middle" scope="col">Range</th>
-                        <th class="align-middle" scope="col">Expire Date</th>
-                        <th class="align-middle" scope="col">Apply</th>
+                        <th class="align-middle" scope="col">Job Name</th>
+                        <th class="align-middle" scope="col">Company</th>
+                        <th class="align-middle" scope="col">Expire date</th>
+                        <th class="align-middle" scope="col">Status</th>
+                        <th class="align-middle" scope="col">Total applicants</th>
+                        <th class="align-middle" scope="col">View Details</th>
+                        <th class="align-middle" scope="col">Renew</th>
                     </tr>
                 </thead>
-
                 <tbody>
-                    @foreach ($resultArray as $row)
-                        <tr>
-                            <td class="fw-bold">{{ $row->name }}</td>
-                            <td>{{ $row->company_name }}</td>
-                            <td>{{ $row->description }}</td>
-                            <td>{{ $row->salary_from }}</td>
-                            <td>{{ $row->salary_range }}</td>
-                            <td>{{ $row->expire_date }}</td>
-                            <td>
-                                <a target="_blank" href="{{ url('jobs/' . Str::slug($row->name, '-')) }}"
-                                    class="btn btn-primary">Apply</a>
-                            </td>
-                        </tr>
-                    @endforeach
+                    <tr>
+                        <td><a href="#" class="fw-bold">Sample Job Name</a></td>
+                        <td>Sample Company</td>
+                        <td>Sample Date</td>
+                        <td>Sample Status</td>
+                        <td>0</td>
+                        <td><a href="#" class="btn btn-xs">View</a></td>
+                        <td><a href="#" class="btn btn-xs btn-success">Renew</a></td>
+                    </tr>
                 </tbody>
-
             </table>
         </div>
     </div>

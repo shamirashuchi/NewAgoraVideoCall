@@ -256,7 +256,7 @@
                         </div>
                     @endif
 
-                    <div class="mb-25 mt-2">
+                    <div class="mb-25">
                         <a class="text-primary" href="#">{{ __('Forgot password?') }}</a>
                     </div>
 
@@ -278,7 +278,7 @@
             </div>
 
             <!-- Right Side Image Section -->
-            <div class="col-lg-6 d-none d-lg-block mb-30">
+            <div class="col-lg-6 d-none d-lg-block">
                 <div id="carouselExampleDark" class="carousel carousel-dark slide">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"

@@ -151,7 +151,7 @@
 
 <section class="pt-70 login-register">
     <div class="container">
-        <div class="row login-register-cover align-items-center mb-10">
+        <div class="row login-register-cover align-items-center">
 
             <div class="col-lg-6 col-md-8 col-sm-12 mx-auto">
                 <div class="text-center mb-4">
@@ -259,7 +259,7 @@
                             </div>
                         @endif
 
-                        <div class="mt-2 mb-5">
+                        <div class="mb-5">
                             <a class="text-primary" href="#">{{ __('Forgot password?') }}</a>
                         </div>
 
@@ -283,7 +283,7 @@
             </div>
 
             <!-- Right side image section -->
-            <div class="col-lg-6 d-none d-lg-block mb-30">
+            <div class="col-lg-6 d-none d-lg-block">
                 <div id="carouselExampleDark" class="carousel carousel-dark slide">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
@@ -298,7 +298,7 @@
                             aria-label="Slide 5"></button>
                     </div>
                     <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="10000" style="height: 860px;">
+                        <div class="carousel-item active" data-bs-interval="10000" style="height: 861px;">
                             <img src="https://www.mamtaz.com/storage/covers/group-36.png" class="d-block w-100 h-100"
                                 alt="..." style="object-fit: cover;">
                             <div class="carousel-caption">
@@ -308,7 +308,7 @@
                                     recommended.”</p>
                             </div>
                         </div>
-                        <div class="carousel-item" data-bs-interval="2000" style="height: 860px;">
+                        <div class="carousel-item" data-bs-interval="2000" style="height: 861px;">
                             <img src="https://www.mamtaz.com/storage/covers/group-36.png" class="d-block w-100 h-100"
                                 alt="..." style="object-fit: cover;">
                             <div class="carousel-caption">
@@ -318,7 +318,7 @@
                                     recommended ”</p>
                             </div>
                         </div>
-                        <div class="carousel-item" data-bs-interval="2000" style="height: 860px;">
+                        <div class="carousel-item" data-bs-interval="2000" style="height: 861px;">
                             <img src="https://www.mamtaz.com/storage/covers/group-36.png" class="d-block w-100 h-100"
                                 alt="..." style="object-fit: cover;">
                             <div class="carousel-caption">
@@ -328,7 +328,7 @@
                                     recommended ”</p>
                             </div>
                         </div>
-                        <div class="carousel-item" data-bs-interval="2000" style="height: 860px;">
+                        <div class="carousel-item" data-bs-interval="2000" style="height: 861px;">
                             <img src="https://www.mamtaz.com/storage/covers/group-36.png" class="d-block w-100 h-100"
                                 alt="..." style="object-fit: cover;">
                             <div class="carousel-caption">
@@ -338,7 +338,7 @@
                                     recommended ”</p>
                             </div>
                         </div>
-                        <div class="carousel-item" data-bs-interval="2000" style="height: 860px;">
+                        <div class="carousel-item" data-bs-interval="2000" style="height: 861px;">
                             <img src="https://www.mamtaz.com/storage/covers/group-36.png" class="d-block w-100 h-100"
                                 alt="..." style="object-fit: cover;">
                             <div class="carousel-caption">

@@ -79,7 +79,7 @@
         $(document).ready(function() {
     const percentage = $("#circle-staticstic-profile").data('percent-completed');
     $("#circle-staticstic-profile").circliful({
-        foregroundColor: 'rgba(5, 38, 78, 1)',
+        foregroundColor: '#800080',
         animation: 1,
         foregroundBorderWidth: 20,
         backgroundBorderWidth: 20,

@@ -10,16 +10,7 @@
     }
 
     .img-pic{
-        margin-left: 0px;
-    }
-
-    .header-bg {
-        background: linear-gradient(135deg, rgba(244, 250, 255, 0.9), rgba(208, 223, 245, 0.9));
-    }
-
-    .navmenus{
-        font-weight: 500;
-        letter-spacing: 1px;
+        margin-left: -25px;
     }
 
 </style>
@@ -42,7 +33,7 @@
 
 
 @if(request()->segment(1) != 'account' && request()->segment(2) != 'settings')
-    <header class="header header-bg  @if (theme_option('enabled_sticky_header', 'yes') == 'yes')  @endif"  id="headermargin">
+    <header class="header  @if (theme_option('enabled_sticky_header', 'yes') == 'yes')  @endif"  id="headermargin">
         <div class="container">
             <div class="main-header">
                 <div class="header-left">
@@ -52,7 +43,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="header-nav"   style="width:60%; fpmt">
+                <div class="header-nav"   style="width:60%;">
                     <nav class="nav-main-menu">
                         {!!
                             Menu::renderMenuLocation('main-menu', [
@@ -76,11 +67,10 @@
                                     <li class="list-inline-item dropdown">
                                         <a href="#" class="d-inline-flex header-item" id="userdropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                             <img src="{{ $account->avatar_thumb_url }}" alt="{{ $account->name }}" width="35" height="35" class="img-pic rounded-circle me-1 mt-1 mr-2">
-                                            <span class="text-left fw-medium icon-down" title="{{ $account->name }}">
-                                                {{ Str::limit($account->name, 10) }}
+                                            <span class="text-left fw-medium icon-down" title="{{ __('Hi, :name', ['name' => Str::limit($account->name, 10)]) }}">
+                                                {{ __('Hi, :name', ['name' => Str::limit($account->name, 10)]) }}
                                             </span>
                                         </a>
-
 
                                         <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu" aria-labelledby="userdropdown">
                                             @if ($account->type == "employer")
@@ -88,12 +78,12 @@
 
 
                                             @elseif ($account->type == "consultant")
-                                                <li><a class="dropdown-item" href="{{ route('public.account.consultanthome') }}">{{ __('Consultant Dashboard') }}</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('public.account.dashboard') }}">{{ __('Consultant Dashboard') }}</a></li>
 
                                             @else
-                                                <li><a class="dropdown-item" href="{{ route('public.account.home') }}">{{ __('Dashboard') }}</a></li>
-                                                {{-- <li><a class="dropdown-item" href="{{ route('public.account.jobs.saved') }}">{{ __('Saved Jobs') }}</a></li>
-                                                <li><a class="dropdown-item" href="{{ route('public.account.jobs.applied-jobs') }}">{{ __('Applied Jobs') }}</a></li> --}}
+                                                <li><a class="dropdown-item" href="https://mamtaz.com/account/home">{{ __('Dashboard') }}</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('public.account.jobs.saved') }}">{{ __('Saved Jobs') }}</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('public.account.jobs.applied-jobs') }}">{{ __('Applied Jobs') }}</a></li>
                                             @endif
                                             <li><a class="dropdown-item" href="{{ route('public.account.settings') }}">{{ __('Account Settings') }}</a></li>
                                             <li>
@@ -417,9 +407,7 @@
                 </div>
             </div>
         </div>
-        <script src="https://download.agora.io/sdk/release/AgoraRTC_N-4.17.0.js"></script>
     </header>
-
     <div class="mobile-header-active mobile-header-wrapper-style perfect-scrollbar">
         <div class="mobile-header-wrapper-inner">
             <div class="mobile-header-content-area">
@@ -446,22 +434,12 @@
                     @auth('account')
                         <div class="mobile-account">
                             <h6 class="mb-10">{{ __('Your Account') }}</h6>
-
                             <ul class="mobile-menu font-heading">
-                            @if ($account->type == "employer")
-                                <li><a class="dropdown-item" href="{{ route('public.account.dashboard') }}">{{ __('Employer Dashboard') }}</a></li>
-
-
-                            @elseif ($account->type == "consultant")
-                                <li><a class="dropdown-item" href="{{ route('public.account.consultanthome') }}">{{ __('Consultant Dashboard') }}</a></li>
-
-                            @else
-                                <li><a class="dropdown-item" href="{{ route('public.account.home') }}">{{ __('Dashboard') }}</a></li>
-                            @endif
+                                <li><a href="{{ route('public.account.jobs.saved') }}">{{ __('Saved Jobs') }}</a></li>
+                                <li><a href="{{ route('public.account.jobs.applied-jobs') }}">{{ __('Applied Jobs') }}</a></li>
                                 <li><a href="{{ route('public.account.settings') }}">{{ __('Account Settings') }}</a></li>
-                                <li><a href="{{ route('public.account.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">{{ __('Logout') }}</a></li>
+                                <li><a href="{{ route('public.account.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">{{ __('Sign Out') }}</a></li>
                             </ul>
-
                         </div>
                         <form id="logout-form" action="{{ route('public.account.logout') }}" method="post">
                             @csrf

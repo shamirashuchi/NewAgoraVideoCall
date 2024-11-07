@@ -71,8 +71,8 @@
             <div class="banner-hero hero-2 hero-3" style="background-color: #05264E">
                 <div class="banner-inner">
                     <div class="block-banner">
-                        <h1 class="text-42 wow animate_animated animate_fadeInUp text-warning">
-                            {{-- {!! BaseHelper::clean(
+                        <h1 class="text-42 wow animate_animated animate_fadeInUp">
+                            {!! BaseHelper::clean(
                                 '<span class="text-warning">' .
                                     preg_replace(
                                         '/' . preg_quote($shortcode->highlight_text, '/') . '/',
@@ -80,8 +80,7 @@
                                         $shortcode->title,
                                     ) .
                                     '</span>',
-                            ) !!} --}}
-                            Find your <span class="text-white">Next Job </span>here
+                            ) !!}
                         </h1>
                         <div class="font-lg font-regular color-white  mt-20 mb-30 wow animate_animated animate_fadeInUp"
                             data-wow-delay=".1s">
@@ -397,7 +396,7 @@
                             <div class="card card-consultant border rounded-2 h-100 consultantbox" style="border-color: rgba(5, 38, 78, 1) !important">
                                 <div class="row d-flex position-relative">
                                     <div class="col-md-4 profile-img-container position-relative">
-                                        <img src="{{ $consultant->avatar_url }}" alt="Profile Photo"
+                                        <img src="https://via.placeholder.com/191x191" alt="Profile Photo"
                                             class="rounded-circle border border-white img-fluid image-controller w-100">
                                         <i class="bi bi-circle-fill text-success status-indicator position-absolute"></i>
                                     </div>
@@ -1331,45 +1330,26 @@
 
 
 
-<style>
-.btn-services {
-    background: linear-gradient(135deg, #f9f9f9, #e0e0e0); /* Subtle gradient for a premium feel */
-    color: rgba(5, 38, 78, 1);
-    padding: 12px 24px;
-    border-radius: 50px; /* Rounded corners */
-    font-weight: 600;
-    box-shadow: 0px 4px 6px rgba(5, 38, 78, 1); /* Soft shadow for a polished look */
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
-}
-
-.btn-services:hover {
-    background: linear-gradient(135deg, #ffffff, #d3d3d3); /* Brighter hover effect */
-    color: #0a3b9a; /* Slightly darker color on hover */
-    box-shadow: 0px 6px 12px rgb(10, 67, 138); /* More pronounced shadow on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-}
-
-</style>
 @if (request()->is('jobs'))
     <div class="container-fluid d-flex flex-sm-column flex-md-row justify-content-between align-items-center consultantDesign"
         style="background-color: #153459; color: white;">
-        <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 text-center Design mt-40 mb-40" style="max-width: 100%;">
+        <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12 text-center Design" style="max-width: 100%;">
             <h2 style="color: white;margin-bottom: 40px;">Consultant</h2>
             <p style="color: white; margin-bottom: 50px;">Our expert career consultants can assist you in numerous ways to enhance your job search and professional growth.
             </p>
             <div class="d-flex gap-3 justify-content-md-between justify-content-sm-between flex-sm-column flex-md-row">
                 <a href="{{ route('consultants') }}"
                     class="d-flex gap-3 justify-content-md-center justify-content-sm-center align-items-center"
-                    style="text-decoration: none;"><button class="py-2 px-3 rounded-pill border-0 fw-bold btn-services"><i
-                        class="fa fa-users me-lg-1 me-md-1 me-sm-0"></i>Take Consultancy</button></a>
+                    style="text-decoration: none; color: #FFFE3A;"><i
+                        class="fa fa-users me-lg-1 me-md-1 me-sm-0"></i>Take Consultancy</a>
                 <a href="{{ route('consultants') }}"
                     class="d-flex gap-3 justify-content-md-center justify-content-sm-center align-items-center"
-                    style="text-decoration: none;"><button class="py-2 px-3 rounded-pill border-0 fw-bold btn-services"><i
-                        class="fa fa-calendar me-lg-1 me-md-1 me-sm-0"></i> Book Appointment</button></a>
+                    style="text-decoration: none; color: white;"><i
+                        class="fa fa-calendar me-lg-1 me-md-1 me-sm-0"></i> Book Appointment</a>
                 <a href="{{ route('consultants') }}"
                     class="d-flex gap-3 justify-content-md-center justify-content-sm-center align-items-center"
-                    style="text-decoration: none;"><button class="py-2 px-3 rounded-pill border-0 fw-bold btn-services"><i
-                        class="fa fa-briefcase me-lg-1 me-md-1 me-sm-0"></i> Take Services</button></a>
+                    style="text-decoration: none; color: white;"><i
+                        class="fa fa-briefcase me-lg-1 me-md-1 me-sm-0"></i> Take Services</a>
             </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 imageDesign" style="">

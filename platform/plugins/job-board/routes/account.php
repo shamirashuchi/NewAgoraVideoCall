@@ -33,17 +33,17 @@ Route::group(['namespace' => 'Botble\JobBoard\Http\Controllers', 'middleware' =>
                         'uses' => 'register',
                     ]);
                 });
-                Route::controller('MeetController')->group(function () {
-                    Route::get('meet', [
-                        'as' => 'meet',
-                        'uses' => 'store',
-                    ]);
+                // Route::controller('MeetController')->group(function () {
+                //     Route::get('meet', [
+                //         'as' => 'meet',
+                //         'uses' => 'store',
+                //     ]);
 
-                    Route::post('meet', [
-                        'as' => 'meet.post',
-                        'uses' => 'store',
-                    ]);
-                });
+                //     Route::post('meet', [
+                //         'as' => 'meet.post',
+                //         'uses' => 'store',
+                //     ]);
+                // });
 
 
                 // Register 2

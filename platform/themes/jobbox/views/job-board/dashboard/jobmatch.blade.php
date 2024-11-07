@@ -54,7 +54,47 @@
                     </div>
                 </div>
 
-            </div>
+                {{-- <div class="col-lg-6">
+                    <form action="" method="">
+                        <div class="candidate-list-widgets">
+                            <div class="row justify-content-end">
+                                <div class="col-lg-5">
+                                    <div class="selection-widget form-group select-style mt-3 mt-lg-0">
+                                        <select class="form-control select-active rounded px-3 py-2 shadow-sm h-100"
+                                            data-trigger name="order_by" id="choices-single-filter-order_by"
+                                            aria-label="Default select example">
+                                            <option value="">{{ __('Default') }}</option>
+                                            <option value="newest">{{ __('Newest') }}</option>
+                                            <option value="oldest">{{ __('Oldest') }}</option>
+                                            <option value="random">{{ __('Random') }}</option>
+                                        </select>
+                                    </div>
+                                </div><!--end col-->
+                                <div class="col-lg-5">
+                                    <div class="selection-widget form-group select-style mt-3 mt-lg-0">
+                                        <select class="form-control select-active rounded px-3 py-2 shadow-sm h-100"
+                                            data-trigger name="order_by" id="choices-single-filter-order_by"
+                                            aria-label="Default select example">
+                                            <option value="">{{ __('All') }}</option>
+                                            <option value="newest">{{ __('data 1') }}</option>
+                                            <option value="oldest">{{ __('data 2') }}</option>
+                                            <option value="random">{{ __('data 3') }}</option>
+                                        </select>
+                                    </div>
+                                </div><!--end col-->
+                                <div class="col-lg-2 px-2">
+                                    <button
+                                        class="btn btn-primary w-100 btn-search-filter d-flex align-items-center justify-content-center h-100 rounded shadow-sm"
+                                        style="background-color: #007bff;">
+                                        <i class="fi-rr-search me-2"></i> Search
+                                    </button>
+                                </div>
+                            </div><!--end row-->
+                        </div><!--end candidate-list-widgets-->
+                    </form>
+
+                </div> --}}
+            </div><!--end row-->
 
 
             <div class="px-5 py-3">
@@ -109,7 +149,7 @@
                     </div>
                 </div>
 
-                <div class="pb-4">
+                {{-- <div class="pb-4">
                     <div class="col-md-12 pt-3 pb-4 px-3 mb-5 border border-1 rounded-3 shadow-sm">
                         <div class="row d-flex align-items-center">
                             <div class="col-md-6 ">
@@ -147,7 +187,7 @@
                             <button class="btn btn-primary">View Job</button>
                         </span>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 
